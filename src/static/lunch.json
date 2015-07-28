@@ -1,0 +1,98 @@
+{
+  "dishesDay1":[
+    {
+      "dishName": "Butter Chicken"
+    },
+    {
+      "dishName": "Butter Beef"
+    },
+    {
+      "dishName": "Butter Chicken"
+    }
+  ],
+
+  "dishesDay2":[
+    {
+      "dishName": "Butter Chicken"
+    },
+    {
+      "dishName": "Butter Chicken"
+    },
+    {
+      "dishName": "Butter Chicken"
+    }
+  ],
+
+  "dishesDay3":[
+    {
+      "dishName": "Butter Chicken"
+    },
+    {
+      "dishName": "Butter Chicken"
+    },
+    {
+      "dishName": "Butter Chicken"
+    }
+  ],
+
+  "dishesDay4":[
+    {
+      "dishName": "Butter Chicken"
+    },
+    {
+      "dishName": "Butter Chicken"
+    },
+    {
+      "dishName": "Butter Chicken"
+    }
+  ],
+
+  "saladsDay1":[
+    {
+      "saladName": "Caesar salad"
+    },
+    {
+      "saladName": "Caesar salad"
+    },
+    {
+      "saladName": "Caesar salad"
+    }
+  ],
+
+  "saladsDay2":[
+    {
+      "saladName": "Caesar salad"
+    },
+    {
+      "saladName": "Caesar salad"
+    },
+    {
+      "saladName": "Caesar salad"
+    }
+  ],
+
+  "saladsDay3":[
+    {
+      "saladName": "Caesar salad"
+    },
+    {
+      "saladName": "Caesar salad"
+    },
+    {
+      "saladName": "Caesar salad"
+    }
+  ],
+
+  "saladsDay4":[
+    {
+      "saladName": "Caesar salad"
+    },
+    {
+      "saladName": "Caesar salad"
+    },
+    {
+      "saladName": "Caesar salad"
+    }
+  ]
+
+}

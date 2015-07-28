@@ -1,0 +1,21 @@
+<div class="container" style="width: 25%"  ng-controller="signInController as main" ng-init="main.init()">
+<form role="form" name="signInForm" novalidate>
+
+    <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email" name="email" ng-model="user.email" placeholder="email" required>
+        <span style="color:red" ng-show="signInForm.email.$dirty && signInForm.email.$invalid">
+  <span ng-show="signInForm.email.$error.required">Email is required.</span>
+  <span ng-show="signInForm.email.$error.email">Invalid email address.</span>
+  </span>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" name="pass" id="pwd" ng-model="user.pass" placeholder="password">
+
+    </div>
+
+    <button class="btn btn-default" ng-click="main.signIn()">Sign In</button>
+    <a class="href" href="http://localhost:8000/#/signup">Sign Up</a>
+</form>
+</div>

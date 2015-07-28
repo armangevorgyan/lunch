@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <title>SFL lunch list</title>
+    <link rel="icon" type="image/png" href="sfl.png" >
+</head>
+<body>
+<div class="jumbotron text-center" style="background-color: #F5F5F5">
+    <img src="sfl..jpg">
+    <h2>Lunch</h2>
+    <p >Select your lunch the next 5 days.</p>
+</div>
+    <div ng-view> </div>
+
+<script src="scripts/application.js"></script>
+<script src="scripts/controllers/listController.js"></script>
+<script src="scripts/controllers/lunchController.js"></script>
+<script src="scripts/rout.js"></script>
+<script src="scripts/controllers/signInController.js"></script>
+<script src="scripts/controllers/signUpController.js"></script>
+<script src="scripts/directives/confirmPassword.js"></script>
+<script src="scripts/services/TokenService.js"></script>
+</body>
+</html>
