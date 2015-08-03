@@ -13,7 +13,7 @@ app.controller('signUpCtrl', function($scope, $http, $location){
     };
     $scope.signUp = function () {
        $http.post('/users', $scope.dataObj).success(function(response){
-           $location.path('/chooseLunch');
+           $location.path('/');
            console.log(response);
        });
 

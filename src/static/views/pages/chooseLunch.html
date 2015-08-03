@@ -1,4 +1,4 @@
-<div >
+<!-- <div >
 <table class="table table-bordered table-striped" >
     <thead>
     <tr>
@@ -87,3 +87,59 @@
     </tbody>
 </table>
 </div>
+-->
+
+<div ng-controller="listController as main" ng-init="main.init()">
+   <div class="text-center" >
+     <button class="btn btn-info" ng-click="main.previousWeek(); main.loadLunches(firstDayOfWeek)"><span class="glyphicon glyphicon-arrow-left"></span></button>
+     <strong class="text-info">{{firstDayOfWeek  | date: ' dd MMM'}} -- {{ lastDayOfWeek | date: ' dd MMM  yyyy'}}</strong>
+       <button class="btn btn-info" ng-click="main.nextWeek(); main.loadLunches(firstDayOfWeek)"><span class="glyphicon glyphicon-arrow-right"></span> </button>
+
+   </div>
+    <table class="table table-bordered table-striped" >
+        <thead>
+        <tr>
+            <th width="1%"> No.</th>
+            <th>Name Surname</th>
+            <th ng-repeat-start="i in [1,2,3,4,5]">Main Dishes</th>
+            <th ng-repeat-end>Salads</th>
+            <th>Edit/Save</th>
+        </tr>
+        </thead>
+        <tbody ng-init="main.loadLunches(firstDayOfWeek)">
+        <input type="search" ng-model="search" placeholder="filter friends..."  />
+        <tr ng-repeat="user in lunchesSelected | filter:search" ng-model="lunchesSelected">
+            <td>{{$index + 1}}</td>
+            <td>{{user.name}}    </td>
+            <td ng-repeat-start="lunch in user.lunch" ng-if-start="user.id !== editUserId">
+                {{lunch.dish.title}}
+            </td>
+            <td ng-repeat-end ng-if-end>
+                {{lunch.salad.title}}
+            </td>
+            <td ng-if-start="user.id === editUserId" ng-repeat-start="day in days">
+                <div class="form-group">
+                    <select class="form-control">
+                        <option ng-repeat=" x in dishes" value="{{$index + 1}}">{{x.title}}</option>
+                    </select>
+                </div>
+
+            </td>
+            <td ng-if-end ng-repeat-end>
+                <div class="form-group">
+                    <select class="form-control">
+                        <option ng-repeat=" x in salads" value="{{$index + 1}}">{{x.title}}</option>
+                    </select>
+                </div>
+            </td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger" ng-click="saveChooses()">Edit</button>
+                    <button type="button" class="btn btn-primary">OK</button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+

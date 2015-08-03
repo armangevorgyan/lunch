@@ -9,6 +9,8 @@ SignInController.prototype.init = function() {
         "email": "",
         "password": ""
     };
+
+
 };
 SignInController.prototype.signIn = function() {
     var that = this;

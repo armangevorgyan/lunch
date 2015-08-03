@@ -8,7 +8,7 @@ app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'views/pages/chooseLunch.html',
-            controller: 'listCtrl',
+            controller: 'listController',
             resolve: {
                 navigateToSignIn: navigateToSignIn
             }
@@ -19,6 +19,10 @@ app.config(function($routeProvider) {
         .when('/signup', {
             templateUrl: 'views/pages/signup.html',
             controller: 'signUpCtrl'
+        })
+        .when('/setuplunch', {
+            templateUrl: 'views/pages/setupLunch.html',
+            controller: 'listCtrl'
         })
         .otherwise({
             redirectTo: 'error'

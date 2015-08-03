@@ -1,15 +1,19 @@
 var express = require('express'),
+    clone = require('clone'),
 
     app = express(),
 
     // stub
-    user = require(__dirname + '/stub/user.js');
+    user = require(__dirname + '/stub/user.js'),
+    users = require(__dirname + '/stub/users.js'),
+    salads = require(__dirname + '/stub/salads.js'),
+    dishes = require(__dirname + '/stub/dishes.js');
 
 app.use(express.static(__dirname + '/static'));
 
 // user
 app.get('/users', function(request, response) {
-    response.json([user]);
+    response.json(users);
 });
 
 // sign up
@@ -38,6 +42,33 @@ app.post('/token', function(request, response) {
     response.json({
         token: '1234'
     });
+});
+
+// list of users with lunches
+app.get('/lunches/selected/:date', function(request, response) {
+    var i,
+        chooses = clone(users);
+
+    chooses.forEach(function(user, index) {
+        chooses[index].lunch = [];
+        for(i = 0; i < 5; i++) {
+            chooses[index].lunch.push({
+                salad: salads[Math.round(Math.random() * (salads.length - 1))],
+                dish: dishes[Math.round(Math.random() * (dishes.length - 1))]
+            });
+        }
+
+    });
+
+    response.json(chooses);
+});
+// lunches to choose
+app.get('/lunches/:date', function(request, response) {
+    var lunches = {
+        salads: salads,
+        dishes: dishes
+    };
+    response.json(lunches);
 });
 
 app.listen(8000);
