@@ -1,48 +1,49 @@
 <div class="container" ng-controller="signUpCtrl" style="width: 25%">
-    <form role="form" name="signUpForm" novalidate id="signUpForm">
-        <div class="form-group">
-            <label for="name">User Name</label>
-            <input type="text" class="form-control" name="name" id="name" ng-model="user.name" placeholder="name"
-                   required>
-         <span style="color:red" ng-show="signUpForm.name.$dirty && signUpForm.name.$invalid">
-  <span ng-show="signUpForm.name.$error.required">Username is required.</span>
-  </span>
-        </div>
-        <div class="form-group">
-            <label for="surname">User Surname</label>
-            <input type="text" class="form-control" name="surname" id="surname" ng-model="user.surname"
-                   placeholder="surname" required>
- <span style="color:red" ng-show="signUpForm.surname.$dirty && signUpForm.surname.$invalid">
-  <span ng-show="signUpForm.surname.$error.required">Username is required.</span>
-  </span>
-        </div>
-        <div class="form-group">
+    <form role="form" name="signUpForm" novalidate id="signUpForm" ng-submit="signUpForm.$valid && signUp()">
+        <div class="form-group" ng-class="{'has-error':signUpForm.email.$invalid && signUpForm.$submitted}">
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" name="email" id="email" ng-model="user.email" placeholder="email"
-                   required>
+             <input type="email" class="form-control" name="email" id="email" ng-model="user.email" required>
          <span style="color:red" ng-show="signUpForm.email.$dirty && signUpForm.email.$invalid">
-  <span ng-show="signUpForm.email.$error.required">Email is required.</span>
-  <span ng-show="signUpForm.email.$error.email">Invalid email address.</span>
-  </span>
-        </div>
-       <!-- <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" ng-model="user.pass" placeholder="password" required>
-        </div>
-        -->
-        <div class="form-group" data-ng-class="{'has-error':signUpForm.password.$invalid}"><label for="password">Password</label>
-            <input class="form-control" type="password" name="password" id="password" required data-ng-model="Password" />
-            <span class="help-block" data-ng-show="signUpForm.password.$error.required">This is required.</span>
+             <p class="help-block" ng-show="signUpForm.email.$error.required && signUpForm.$submitted">Email is required.</p>
+             <p class="help-block" ng-show="signUpForm.email.$error.email && signUpForm.$submitted">Invalid email address.</p>
+         </span>
         </div>
 
-        <div class="form-group" data-ng-class="{'has-error':signUpForm.passwordCompare.$invalid}"><label for="passwordCompare">Confirm Password</label>
-            <input class="form-control" type="password" name="passwordCompare" id="passwordCompare" required data-ng-model="PasswordCompare" data-ng-match="Password" />
-            <span class="help-block" data-ng-show="signUpForm.passwordCompare.$error.required">This is required.</span>
-            <span class="help-block" data-ng-show="signUpForm.passwordCompare.$error.match">Passwords do not match.</span>
+        <div class="form-group" ng-class="{'has-error':signUpForm.firstName.$invalid && signUpForm.$submitted}">
+            <label>First name</label>
+             <input type="text" class="form-control" name="firstName" ng-model="user.firstName" required>
+         <span style="color:red" ng-show="signUpForm.firstName.$dirty && signUpForm.firstName.$invalid">
+            <p class="help-block" ng-show="signUpForm.firstName.$error.required && signUpForm.$submitted">First name is required.</p>
+         </span>
         </div>
 
-        <button class="btn btn-default" ng-click="signUp()">Sign Up</button>
+        <div class="form-group" ng-class="{'has-error':signUpForm.lastName.$invalid && signUpForm.$submitted}">
+            <label>Last name</label>
+            <input type="text" class="form-control" name="lastName" ng-model="user.lastName" required>
+         <span style="color:red" ng-if="signUpForm.lastName.$dirty && signUpForm.lastName.$invalid">
+             <p class="help-block" ng-if="signUpForm.lastName.$error.required && signUpForm.$submitted">Last name is required.</p>
+         </span>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error':signUpForm.password.$invalid && signUpForm.$submitted}">
+            <label>Password</label>
+            <input class="form-control" type="password" name="password" required ng-minlength="6" ng-maxlength="20"
+                   ng-model="Password"/>
+            <span style="color: red">
+              <p class="help-block" ng-if="signUpForm.password.$error.minlength && signUpForm.$submitted">Minimum characters length is 6</p>
+              <p class="help-block" ng-if="signUpForm.password.$error.maxlength && signUpForm.$submitted">Maximum characters length is 20</p>
+             </span>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error':signUpForm.passwordCompare.$invalid  && signUpForm.$submitted}">
+            <label>Confirm Password</label>
+            <input class="form-control" type="password" name="passwordCompare" id="passwordCompare" required ng-model="PasswordCompare" ng-match="Password"/>
+            <span style="color:red">
+                <p class="help-block" ng-if="signUpForm.$submitted && !signUpForm.passwordCompare.$error.required &&
+                  !signUpForm.passwordCompare.$valid">Passwords do not match</p>
+            </span>
+        </div>
+        <button class="btn btn-default">Sign Up</button>
         <a href="http://localhost:8000/#/signin">Sign In</a>
-
     </form>
 </div>
