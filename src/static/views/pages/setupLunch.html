@@ -1,23 +1,22 @@
-<div class="container" style="width: 25%">
-    <form role="form" style="float: left; margin-right: 5%">
-        <div class="form-group" ng-repeat="dish in [1,2,3,4,5]">
+<div class="container " style="width: 25%" ng-controller="setupLunchController as setupLunch" ng-init="setupLunch.init()">
+    <calendar start-date="startDate" on-change="setupLunch.loadWeekLunches()" ></calendar> <br><hr>
+    <form role="form" style="float: left; margin-right: 11%">
+        <div class="form-group" ng-repeat="day in dishes" >
             <label>Main Dishes day {{$index + 1}}</label>
-            <input class="form-control">
-            <input class="form-control">
-            <input class="form-control">
+            <input class="form-control"  ng-repeat="dish in day" ng-model="dish.title" >
+
         </div>
     </form>
     <form role="form" style="float: left">
-        <div class="form-group" ng-repeat="salad in [1,2,3,4,5]">
-            <label>Salads {{$index + 1}}</label>
-            <input class="form-control">
-            <input class="form-control">
-            <input class="form-control">
+        <div class="form-group" ng-repeat="day in salads">
+            <label>Salads day {{$index + 1}}</label>
+            <input class="form-control" ng-repeat="salad in day" ng-model="salad.title">
+
         </div>
     </form>
     <center style="margin-right: 5%">
         <div class="btn-group">
-            <button type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary" ng-click="setupLunch.saveSetupLunches()">Save</button>
         </div>
     </center>
 </div>

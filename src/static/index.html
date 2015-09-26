@@ -7,15 +7,36 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <title>SFL lunch list</title>
-    <link rel="icon" type="image/png" href="sfl.png" >
+    <link rel="icon" type="image/png" href="sfl.png">
 </head>
 <body>
-<div class="jumbotron text-center" style="background-color: #F5F5F5">
-    <img src="sfl..jpg">
-    <h2>Lunch</h2>
-    <p >Select your lunch the next 5 days.</p>
+<div class="jumbotron " style="background-color: #F5F5F5">
+    <div>
+        <ul class="nav nav-pills page-header">
+            <li><img src="sfl..jpg"></li>
+            <li><h2>Lunch</h2></li>
+            <ul class="nav nav-pills"  ng-controller="logOutController">
+                <li style="float: right; ">
+                    <button class="btn btn-group btn-danger "><span class="glyphicon glyphicon-log-out"></span> Logout</button>
+                </li>
+                <li style="float: right; margin-right: 1%"><strong><h4> {{userName.firstName + " " + userName.lastName}}</h4></strong></li>
+                <li  style="float: right; margin-right: 1%"><h4><span class="glyphicon glyphicon-user" ></span></h4></li>
+
+            </ul>
+
+        </ul>
+
+    </div>
+    <div>
+        <ul class="nav nav-pills">
+            <li><a href="http://localhost:8000/#/">List</a></li>
+            <li><a href="http://localhost:8000/#/setuplunch">Setup</a></li>
+
+        </ul>
+    </div>
+
 </div>
-    <div ng-view> </div>
+<div ng-view></div>
 
 <script src="scripts/application.js"></script>
 <script src="scripts/controllers/listController.js"></script>
@@ -23,7 +44,10 @@
 <script src="scripts/rout.js"></script>
 <script src="scripts/controllers/signInController.js"></script>
 <script src="scripts/controllers/signUpController.js"></script>
+<script src="scripts/controllers/setupLunchController.js"></script>
+<script src="scripts/controllers/logOutController.js"></script>
 <script src="scripts/directives/confirmPassword.js"></script>
+<script src="scripts/directives/calendarDirective.js"></script>
 <script src="scripts/services/TokenService.js"></script>
 </body>
 </html>

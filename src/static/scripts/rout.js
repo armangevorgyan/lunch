@@ -15,14 +15,15 @@ app.config(function($routeProvider) {
         })
         .when('/signin', {
             templateUrl: 'views/pages/signin.html',
-            controller: 'signInController'})
+            controller: 'signInController'
+        })
         .when('/signup', {
             templateUrl: 'views/pages/signup.html',
             controller: 'signUpCtrl'
         })
         .when('/setuplunch', {
             templateUrl: 'views/pages/setupLunch.html',
-            controller: 'listCtrl'
+            controller: 'setupLunchController'
         })
         .otherwise({
             redirectTo: 'error'

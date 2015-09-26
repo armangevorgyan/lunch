@@ -45,7 +45,7 @@ app.post('/token', function(request, response) {
 });
 
 // list of users with lunches
-app.get('/lunches/selected/:date', function(request, response) {
+app.get('/chooses/:date', function(request, response) {
     var i,
         chooses = clone(users);
 
@@ -62,13 +62,27 @@ app.get('/lunches/selected/:date', function(request, response) {
 
     response.json(chooses);
 });
+
+app.post('/chooses/:date', function(request, response) {
+    response.json({
+        status: 'ok'
+    });
+});
+
 // lunches to choose
 app.get('/lunches/:date', function(request, response) {
+    response.statusCode = 404;
     var lunches = {
         salads: salads,
         dishes: dishes
     };
     response.json(lunches);
+});
+
+app.post('/lunches/:date', function(request, response) {
+    response.json({
+        status: 'ok'
+    });
 });
 
 app.listen(8000);
