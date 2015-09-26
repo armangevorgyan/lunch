@@ -4,6 +4,7 @@ window.app = angular.module('myApp', ['ngRoute'])
     .service('lunchWebService', lunch.LunchWebService)
     .service('foodOptionsWebService', lunch.FoodOptionsWebService)
     .service('foodWebService', lunch.FoodWebService)
+    .service('supplierOptionsWebService', lunch.f)
     // controllers
     .controller('lunchListController', lunch.LunchListController)
     .controller('signInController', lunch.SignInController)

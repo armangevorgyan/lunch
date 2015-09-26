@@ -2,14 +2,17 @@
  * Created by arman.gevorgyan on 26-Sep-15.
  */
 (function(lunch){
-    function SupplierOptionsController($scope, $http, $location) {
+    function SupplierOptionsController($scope,  $route, foodWebService) {
         this.$scope = $scope;
-        this.$http = $http;
-        this.$location = $location;
+        this.$route =  $route;
+        this.foodWebService = foodWebService;
     }
     SupplierOptionsController.prototype.init= function() {
-        this.$scope.foods = ['1','2','3','4', '5'];
-
+        var params = this.$route.current.params, that= this;
+        this.$scope.type = params.type;
+        this.foodWebService.read(this.$scope.type).then(function(response){
+            that.$scope.foods = response;
+        })
     };
     SupplierOptionsController.prototype.save = function(){
 
