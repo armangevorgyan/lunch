@@ -14,6 +14,14 @@ app.config(function($routeProvider) {
                 navigateToSignIn: navigateToSignIn
             }
         })
+        .when('/choose/:type/:year/:month/:day/', {
+            templateUrl: 'views/pages/choose.html',
+            controller: 'chooseController',
+            controllerAs: 'main',
+            resolve: {
+                navigateToSignIn: navigateToSignIn
+            }
+        })
         .when('/signin', {
             templateUrl: 'views/pages/signIn.html',
             controller: 'signInController',

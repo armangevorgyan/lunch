@@ -1,10 +1,11 @@
 window.app = angular.module('myApp', ['ngRoute'])
     .service('tokenService', lunch.TokenService)
-    //WebServices
+    // web services
     .service('lunchWebService', lunch.LunchWebService)
-//controllers
+    // controllers
     .controller('lunchListController', lunch.LunchListController)
     .controller('signInController', lunch.SignInController)
     .controller('signUpController', lunch.SignUpController)
-//directives
+    .controller('chooseController', lunch.ChooseController)
+    // directives
     .directive('calendar', lunch.calendarDirective);

@@ -3,7 +3,11 @@
     <div class="lunches row">
         <div class="col-md-3 col-sm-6 col-xs-12 lunch" ng-repeat="lunch in lunches">
             {{lunch.date | date: 'd MMM (EEEE)'}}
-            <div class="lunch-food" ng-repeat="food in lunch.food">{{food.title}}</div>
+            <div class="lunch-food" ng-repeat="food in lunch.food">
+                <a href="#/choose/{{food.type}}/{{lunch.date | date: 'yyyy'}}/{{lunch.date | date: 'M'}}/{{lunch.date | date: 'd'}}/">
+                    {{food.title}}
+                </a>
+            </div>
         </div>
     </div>
 </div>
