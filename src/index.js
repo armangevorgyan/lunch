@@ -7,7 +7,8 @@ var express = require('express'),
     user = require(__dirname + '/stub/user.js'),
     users = require(__dirname + '/stub/users.js'),
     salads = require(__dirname + '/stub/salads.js'),
-    dishes = require(__dirname + '/stub/dishes.js');
+    dishes = require(__dirname + '/stub/dishes.js'),
+    lunches = require(__dirname + '/stub/lunches.js');
 
 app.use(express.static(__dirname + '/static'));
 
@@ -44,8 +45,8 @@ app.post('/token', function(request, response) {
     });
 });
 
-app.get('lunch', function(request, response) {
-    response.json();
+app.get('/lunch', function(request, response) {
+    response.json(lunches);
 });
 
 // list of users with lunches

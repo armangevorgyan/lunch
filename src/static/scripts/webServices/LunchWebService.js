@@ -1,9 +1,10 @@
 (function(lunch) {
-    function LunchWebService ($http) {
-        this.$http = $http;
+    function LunchWebService ($q, $http) {
+        this.constructor($q, $http);
     }
+    LunchWebService.prototype = new lunch.AbstreactWebService();
     LunchWebService.prototype.read = function(fromDate, toDate) {
-        return this.$http.get("/lunch/?from=" + fromDate.toISOString() + '&to' + toDate.toISOString());
+        return this.get("/lunch/?from=" + fromDate.toISOString() + '&to' + toDate.toISOString());
     };
     lunch.LunchWebService = LunchWebService;
 })(lunch);

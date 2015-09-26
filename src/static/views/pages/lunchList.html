@@ -1,55 +1,9 @@
 <div ng-controller="lunchListController as main" ng-init="main.init()" class="tab-pane fade in active">
-  <!-- <div class="text-center" >
-     <button class="btn btn-info" ng-click="main.previousWeek(); main.loadLunches(firstDayOfWeek)"><span class="glyphicon glyphicon-arrow-left"></span></button>
-     <strong class="text-info">{{firstDayOfWeek  | date: ' dd MMM'}} -- {{ lastDayOfWeek | date: ' dd MMM  yyyy'}}</strong>
-       <button class="btn btn-info" ng-click="main.nextWeek(); main.loadLunches(firstDayOfWeek)"><span class="glyphicon glyphicon-arrow-right"></span> </button>
-   </div> -->
     <calendar start-date="fromDate" on-change="main.loadLunches()"></calendar>
-    <table class="table table-bordered table-striped" >
-        <thead>
-        <tr>
-            <th width="1%"> No.</th>
-            <th>Name Surname</th>
-            <th ng-repeat-start="i in [1,2,3,4,5]">Main Dishes</th>
-            <th ng-repeat-end>Salads</th>
-            <th>Edit/Save</th>
-        </tr>
-        </thead>
-        <tbody ng-init="main.loadLunches()" >
-        <input type="search" ng-model="search" placeholder="filter friends..."  style="align-items: center">
-        <tr ng-repeat="user in lunchesSelected | filter:search" ng-model="lunchesSelected">
-            <td>{{$index + 1}}</td>
-            <td>{{user.name}}    </td>
-            <td ng-repeat-start="lunch in user.lunch" ng-if-start="user.id !== editUserId">
-                {{lunch.dish.title}}
-            </td>
-            <td ng-repeat-end ng-if-end>
-                {{lunch.salad.title}}
-            </td>
-            <td ng-if-start="user.id === editUserId" ng-repeat-start="choose in chooses">
-                <div class="form-group">
-                    <select class="form-control" ng-model="chooses[$index].dish">
-                        <option ng-repeat="dish in dishes" ng-value="dish.id">{{dish.title}}</option>
-                    </select>
-
-                </div>
-
-            </td>
-            <td ng-if-end ng-repeat-end>
-                <div class="form-group">
-                    <select class="form-control" ng-model="chooses[$index].salad">
-                        <option  ng-repeat="salad in salads" ng-value="salad.id">{{salad.title}}</option>
-                    </select>
-                </div>
-            </td>
-            <td>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-danger" ng-click="user.id == null || main.editChooses(user.id)" >Edit</button>
-                    <button type="button" ng-model="user.id" class="btn btn-primary" ng-click="user.id == null ||  main.saveChooses(user.id)">OK</button>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="lunches">
+        <div class="luches-item" ng-repeat="lunch in lunches">
+            {{lunch}}
+        </div>
+    </div>
 </div>
 

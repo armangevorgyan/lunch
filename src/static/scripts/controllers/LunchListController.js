@@ -14,6 +14,8 @@
         toDate.setDate(toDate.getDate() + 7);
         this.$scope.fromDate = fromDate;
         this.$scope.toDate = toDate;
+
+        this.loadLunches();
     };
 
     LunchListController.prototype.loadLunches = function () {
