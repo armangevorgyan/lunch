@@ -12,7 +12,6 @@
         var params = this.$route.current.params, that= this;
         this.$scope.type = params.type;
         this.foodWebService.read(this.$scope.type).then(function(response){
-            console.log('ok');
             that.$scope.foods = response;
         })
     };
