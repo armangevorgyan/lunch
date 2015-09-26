@@ -14,11 +14,11 @@ app.config(function($routeProvider) {
             }
         })
         .when('/signin', {
-            templateUrl: 'views/pages/signin.html',
+            templateUrl: 'views/pages/signIn.html',
             controller: 'signInController'
         })
         .when('/signup', {
-            templateUrl: 'views/pages/signup.html',
+            templateUrl: 'views/pages/signUp.html',
             controller: 'signUpCtrl'
         })
         .when('/setuplunch', {
