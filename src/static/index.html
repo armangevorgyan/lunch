@@ -10,23 +10,18 @@
     <link rel="icon" type="image/png" href="sfl.png">
 </head>
 <body>
-<div class="jumbotron " style="background-color: #F5F5F5">
-    <div>
-        <ul class="nav nav-pills page-header">
-            <li><img src="sfl..jpg"></li>
-            <li><h2>Lunch</h2></li>
-            <ul class="nav nav-pills"  ng-controller="logOutController">
-                <li style="float: right; ">
-                    <button class="btn btn-group btn-danger "><span class="glyphicon glyphicon-log-out"></span> Logout</button>
-                </li>
-                <li style="float: right; margin-right: 1%"><strong><h4> {{userName.firstName + " " + userName.lastName}}</h4></strong></li>
-                <li  style="float: right; margin-right: 1%"><h4><span class="glyphicon glyphicon-user" ></span></h4></li>
-
-            </ul>
-
+<div style="background-color: #F5F5F5">
+    <ul class="nav nav-pills">
+        <li><img src="sfl..jpg"></li>
+        <li><h2>Lunch</h2></li>
+        <ul class="nav nav-pills"  ng-controller="logOutController">
+            <li style="float: right; ">
+                <button class="btn btn-group btn-danger "><span class="glyphicon glyphicon-log-out"></span> Logout</button>
+            </li>
+            <li style="float: right; margin-right: 1%"><strong><h4> {{userName.firstName + " " + userName.lastName}}</h4></strong></li>
+            <li  style="float: right; margin-right: 1%"><h4><span class="glyphicon glyphicon-user" ></span></h4></li>
         </ul>
-
-    </div>
+    </ul>
     <div>
         <ul class="nav nav-pills">
             <li><a href="http://localhost:8000/#/">List</a></li>
