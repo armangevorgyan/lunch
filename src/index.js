@@ -10,6 +10,7 @@ var express = require('express'),
     dishes = require(__dirname + '/stub/dishes.js'),
     foodChoice = require(__dirname + '/stub/foodChoice.js'),
     foodOptions = require(__dirname + '/stub/foodOptions.js');
+    food = require(__dirname + '/stub/food.js');
 
 app.use(express.static(__dirname + '/static'));
 
@@ -17,7 +18,6 @@ app.use(express.static(__dirname + '/static'));
 app.get('/users', function(request, response) {
     response.json(users);
 });
-
 // sign up
 app.post('/users', function(request, response) {
     response.json({
@@ -45,9 +45,22 @@ app.post('/token', function(request, response) {
         token: '1234'
     });
 });
+<<<<<<< HEAD
 
 app.get('/food-choice/:fromDate/:toDate', function(request, response) {
     response.json(foodChoice.getChoice(new Date(request.params.fromDate)));
+=======
+// food
+app.get('/food/:type', function(request, response) {
+    response.json([
+        food.getRandom(request.params.type),
+        food.getRandom(request.params.type),
+        food.getRandom(request.params.type)
+    ]);
+});
+app.get('/lunch', function(request, response) {
+    response.json(lunch.getLuches(new Date(request.query.from)));
+>>>>>>> origin/master
 });
 
 app.get('/food-options', function(request, response) {
