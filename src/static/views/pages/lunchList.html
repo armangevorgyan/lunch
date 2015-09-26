@@ -1,8 +1,9 @@
-<div ng-controller="lunchListController as main" ng-init="main.init()" class="tab-pane fade in active">
+<div ng-init="main.init()" class="tab-pane fade in active">
     <calendar start-date="fromDate" on-change="main.loadLunches()"></calendar>
     <div class="lunches row">
-        <div class="col-md-3 col-sm-6 col-xs-12 luches-item" ng-repeat="lunch in lunches">
+        <div class="col-md-3 col-sm-6 col-xs-12 lunch" ng-repeat="lunch in lunches">
             {{lunch.date | date: 'd MMM (EEEE)'}}
+            <div class="lunch-food" ng-repeat="food in lunch.food">{{food.title}}</div>
         </div>
     </div>
 </div>

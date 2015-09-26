@@ -9,13 +9,15 @@ app.config(function($routeProvider) {
         .when('/', {
             templateUrl: 'views/pages/lunchList.html',
             controller: 'lunchListController',
+            controllerAs: 'main',
             resolve: {
                 navigateToSignIn: navigateToSignIn
             }
         })
         .when('/signin', {
             templateUrl: 'views/pages/signIn.html',
-            controller: 'signInController'
+            controller: 'signInController',
+            controllerAs: 'main'
         })
         .when('/signup', {
             templateUrl: 'views/pages/signUp.html',

@@ -9,11 +9,12 @@ function getLuches(date) {
     for(i = 0; i < 5; i++) {
         currentDate = new Date(date);
         currentDate.setDate(currentDate.getDate() + i);
+
         lunches.push({
             date: currentDate.toISOString(),
             food: [
-                clone(food),
-                clone(food)
+                food.getRandom('dish'),
+                food.getRandom('salad')
             ]
         });
     }
