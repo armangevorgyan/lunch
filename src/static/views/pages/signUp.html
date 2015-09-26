@@ -12,8 +12,8 @@
         <div class="form-group" ng-class="{'has-error':signUpForm.firstName.$invalid && signUpForm.$submitted}">
             <label>First name</label>
              <input type="text" class="form-control" name="firstName" ng-model="user.firstName" required>
-         <span style="color:red" ng-show="signUpForm.firstName.$dirty && signUpForm.firstName.$invalid">
-            <p class="help-block" ng-show="signUpForm.firstName.$error.required && signUpForm.$submitted">First name is required.</p>
+         <span style="color:red" ng-if="signUpForm.firstName.$dirty && signUpForm.firstName.$invalid">
+            <p class="help-block" ng-if="signUpForm.firstName.$error.required && signUpForm.$submitted">First name is required.</p>
          </span>
         </div>
 
