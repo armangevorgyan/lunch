@@ -9,10 +9,11 @@
     }
 
     SupplierFoodController.prototype.init= function(){
-        var params = this.$route.current.params;
+        var params = this.$route.current.params, that= this;
         this.$scope.type = params.type;
         this.foodWebService.read(this.$scope.type).then(function(response){
-            this.scope.foods = response;
+            console.log('ok');
+            that.$scope.foods = response;
         })
     };
     lunch.SupplierFoodController = SupplierFoodController;
