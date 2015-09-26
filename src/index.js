@@ -46,7 +46,7 @@ app.post('/token', function(request, response) {
 });
 
 app.get('/lunch', function(request, response) {
-    response.json(lunches);
+    response.json(lunches.getLuches(new Date(request.query.from)));
 });
 
 // list of users with lunches
