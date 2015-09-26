@@ -12,7 +12,7 @@
 <body>
 <div style="background-color: #F5F5F5">
     <ul class="nav nav-pills">
-        <li><img src="sfl..jpg"></li>
+        <li><img src="images/sfl.jpg"></li>
         <li><h2>Lunch</h2></li>
         <ul class="nav nav-pills"  ng-controller="logOutController">
             <li style="float: right; ">
@@ -34,16 +34,23 @@
 <div ng-view></div>
 
 <script src="scripts/lunch.js"></script>
+
 <script src="scripts/services/TokenService.js"></script>
-<script src="scripts/controllers/ListController.js"></script>
+
+<script src="scripts/webServices/LunchWebService.js"></script>
+
+<script src="scripts/controllers/LunchListController.js"></script>
+
+<script src="scripts/directives/calendarDirective.js"></script>
+
 <script src="scripts/application.js"></script>
-<script src="scripts/controllers/lunchController.js"></script>
 <script src="scripts/rout.js"></script>
+
 <script src="scripts/controllers/signInController.js"></script>
 <script src="scripts/controllers/signUpController.js"></script>
 <script src="scripts/controllers/setupLunchController.js"></script>
 <script src="scripts/controllers/logOutController.js"></script>
+<script src="scripts/controllers/lunchController.js"></script>
 <script src="scripts/directives/confirmPassword.js"></script>
-<script src="scripts/directives/calendarDirective.js"></script>
 </body>
 </html>

@@ -44,6 +44,10 @@ app.post('/token', function(request, response) {
     });
 });
 
+app.get('lunch', function(request, response) {
+    response.json();
+});
+
 // list of users with lunches
 app.get('/chooses/:date', function(request, response) {
     var i,

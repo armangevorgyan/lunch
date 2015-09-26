@@ -7,8 +7,8 @@ app.config(function($routeProvider) {
 
     $routeProvider
         .when('/', {
-            templateUrl: 'views/pages/chooseLunch.html',
-            controller: 'listController',
+            templateUrl: 'views/pages/lunchList.html',
+            controller: 'lunchListController',
             resolve: {
                 navigateToSignIn: navigateToSignIn
             }

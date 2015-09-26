@@ -1,4 +1,4 @@
-app.directive('calendar', function () {
+lunch.calendarDirective = function () {
     function link(scope, element, attrs) {
         scope.endDate = (new Date(scope.startDate));
         scope.endDate.setDate(scope.endDate.getDate() + 4);
@@ -22,5 +22,4 @@ app.directive('calendar', function () {
         },
         link: link
     };
-
-});
+};
