@@ -1,4 +1,4 @@
-<div class="container" ng-controller="signUpCtrl" style="width: 25%">
+<div class="container" ng-controller="signUpController" ng-init="init()" style="width: 25%">
     <form role="form" name="signUpForm" novalidate id="signUpForm" ng-submit="signUpForm.$valid && signUp()">
         <div class="form-group" ng-class="{'has-error':signUpForm.email.$invalid && signUpForm.$submitted}">
             <label for="email">Email address:</label>
