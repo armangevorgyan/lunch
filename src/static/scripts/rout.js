@@ -33,7 +33,18 @@ app.config(function($routeProvider) {
         })
         .when('/setuplunch', {
             templateUrl: 'views/pages/setupLunch.html',
-            controller: 'setupLunchController'
+            controller: 'setupLunchController',
+            controllerAs: 'main'
+        })
+        .when('/supplier', {
+            templateUrl:'views/pages/supplier.html',
+            controller: 'supplierController',
+            controllerAs: 'main'
+        })
+        .when('/supplier/:type/:year/:month/:day', {
+            templateUrl: 'views/pages/supplierOptions.html',
+            controller: 'supplierOptionsController',
+            controllerAs: 'main'
         })
         .otherwise({
             redirectTo: 'error'

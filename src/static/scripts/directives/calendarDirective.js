@@ -1,7 +1,7 @@
 lunch.calendarDirective = function () {
     function link(scope, element, attrs) {
         scope.endDate = (new Date(scope.startDate));
-        scope.endDate.setDate(scope.endDate.getDate() + 4);
+        scope.endDate.setDate(scope.endDate.getDate() + 6);
         scope.nextWeek = function() {
             scope.startDate.setDate(scope.startDate.getDate() + 7);
             scope.endDate.setDate(scope.endDate.getDate() + 7);
