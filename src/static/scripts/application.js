@@ -3,6 +3,7 @@ window.app = angular.module('myApp', ['ngRoute'])
     // web services
     .service('lunchWebService', lunch.LunchWebService)
     .service('foodOptionsWebService', lunch.FoodOptionsWebService)
+    .service('foodWebService', lunch.FoodWebService)
     // controllers
     .controller('lunchListController', lunch.LunchListController)
     .controller('signInController', lunch.SignInController)
@@ -10,5 +11,6 @@ window.app = angular.module('myApp', ['ngRoute'])
     .controller('supplierController', lunch.SupplierController)
     .controller('supplierOptionsController', lunch.SupplierOptionsController)
     .controller('chooseController', lunch.ChooseController)
+    .controller('supplierFoodController', lunch.SupplierFoodController)
     // directives
     .directive('calendar', lunch.calendarDirective);

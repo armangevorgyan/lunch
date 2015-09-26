@@ -38,8 +38,8 @@ SupplierController.prototype.init = function() {
                 that.$scope.lunches = response;
             });
     };
-    SupplierController.prototype.navigateToCategory =function(type, date){
-        //this.$location.path('/supplier/'+type +'/'+ date.getFullYear() + '-' + );
+    SupplierController.prototype.foodTypeList = function(type){
+        this.$location.path('supplier/food/' + type)
     };
     lunch.SupplierController = SupplierController;
 })(lunch);
