@@ -1,8 +1,9 @@
 (function(lunch) {
-    function LunchListController($scope, $http, lunchWebService) {
+    function LunchListController($scope, $http, foodChoiceWebService) {
         this.$scope = $scope;
         this.$http = $http;
-        this.lunchWebService = lunchWebService;
+        this.foodChoiceWebService = foodChoiceWebService;
+        this.foodChoiceBuilder = new lunch.FoodChoiceBuilder();
     };
     LunchListController.prototype.init = function () {
         var fromDate,
@@ -21,11 +22,13 @@
     LunchListController.prototype.loadLunches = function () {
         var that = this,
             fromDate = this.$scope.fromDate,
-            toDate = this.$scope.toDate;
+            toDate = this.$scope.toDate,
+            foodChoiceBuilder = this.foodChoiceBuilder;
 
-        this.lunchWebService.read(fromDate, toDate)
+        this.foodChoiceWebService.read(fromDate, toDate)
             .then(function (response) {
-                that.$scope.lunches = response;
+                that.$scope.choices = foodChoiceBuilder.buildGruppedChoises(response);
+                console.log(that.$scope.choices);
             });
     };
 
