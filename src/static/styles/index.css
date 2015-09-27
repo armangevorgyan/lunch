@@ -29,3 +29,7 @@
 .space {
     margin: 5px 0;
 }
+.btn-primary {
+    background: #89af3f;
+    border-color: #6a911d;
+}
