@@ -2,5 +2,5 @@
     <div ng-repeat="option in [1,2,3,4,5] track by $index">
        {{'#'+ ($index+1)}} <select type="text"><option ng-repeat="food in foods">{{food.foodName}}</option></select>
     </div>
-    <button class="btn btn-group btn-primary"  type="button" ng-click="">Save</button>
+    <button class="btn btn-group btn-primary"  type="button" ng-click="main.save()">Save</button>
 </div>
