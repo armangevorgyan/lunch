@@ -1,4 +1,4 @@
-<div class="tab-pane fade in active" ng-init="main.init()">
+<div class="tab-pane fade in active space" ng-init="main.init()">
     <div class="row">
         <div class="col-md-4 col-sm-12"></div>
         <div class="col-md-4 col-sm-12">
@@ -7,7 +7,7 @@
         <div class="col-md-4 col-sm-12"></div>
     </div>
 
-    <div class="row">
+    <div class="row space">
         <div class="col-md-4 col-sm-12 col-xs-12" ng-repeat="date in dates">{{date | date : 'EEEE'}}
             <div>
                 <a class="btn btn-group" href="#/supplier/dish/{{date | date: 'yyyy'}}/{{date | date: 'MM'}}/{{date | date: 'dd'}}/">Dishes</a>
