@@ -6,3 +6,15 @@
     width: 90%;
     margin: 0 auto;
 }
+.lunch-item{
+    display: inline-block;
+    text-align: center;
+    margin-right: 4px;
+}
+.lunch-image{
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}

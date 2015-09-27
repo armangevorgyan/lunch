@@ -2,10 +2,11 @@ var clone = require('clone'),
     food = {
         id: 0,
         foodName: 'Title',
-        type: 'dish'
+        type: 'dish',
+        imageUrl: ''
     },
     examples = {
-        dish: ['Rice', 'Chicken', 'Pork'],
+        dish: ['Rice', 'Chicken', 'Pork', 'Schnitzel'],
         salad: ['Tabule', 'Caesar', 'Greek']
     };
 
@@ -14,9 +15,11 @@ function random(from, to) {
 }
 
 function getRandom(type) {
-    var currentFood = clone(food);
+    var currentFood = clone(food),
+        randomTitile = examples[type][random(0, examples[type].length - 1)];
     currentFood.type = type;
-    currentFood.foodName = examples[type][random(0, examples[type].length - 1)]
+    currentFood.foodName = randomTitile;
+    currentFood.imageUrl = 'uploads/' + randomTitile.toLowerCase() + '.jpg'
     return currentFood;
 }
 
