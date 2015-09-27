@@ -37,3 +37,10 @@
     background: #729829;
     border-color: #527212;
 }
+.nav li a {
+    color: #89af3f;
+}
+.nav li a:hover, .nav li a:focus{
+    background: none;
+    color: white;
+}
