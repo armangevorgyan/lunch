@@ -46,11 +46,17 @@ app.config(function($routeProvider) {
             controller: 'supplierOptionsController',
             controllerAs: 'main'
         })
+        .when('/supplier/food/add', {
+            templateUrl: 'views/pages/supplierAddFood.html',
+            controller: 'supplierAddFoodController',
+            controllerAs: 'main'
+        })
         .when('/supplier/food/:type', {
             templateUrl: 'views/pages/supplierFood.html',
             controller: 'supplierFoodController',
             controllerAs: 'main'
         })
+
         .otherwise({
             redirectTo: 'error'
         });

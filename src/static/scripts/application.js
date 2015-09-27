@@ -12,5 +12,6 @@ window.app = angular.module('myApp', ['ngRoute'])
     .controller('supplierOptionsController', lunch.SupplierOptionsController)
     .controller('chooseController', lunch.ChooseController)
     .controller('supplierFoodController', lunch.SupplierFoodController)
+    .controller('supplierAddFoodController', lunch.SupplierAddFoodController)
     // directives
     .directive('calendar', lunch.calendarDirective);
