@@ -1,6 +1,6 @@
 <div class="container text-center" ng-init="main.init()">
     <div ng-repeat="option in [1,2,3,4,5] track by $index">
-       {{'#'+ ($index+1)}} <select type="text"><option ng-repeat="food in foods">{{food.title}}</option></select>
+       {{'#'+ ($index+1)}} <select type="text"><option ng-repeat="food in foods">{{food.foodName}}</option></select>
     </div>
     <button class="btn btn-group" style="background-color: #89AF3F; color: #F5F5F5; border-color: #ffffff" type="button" ng-click="">Save</button>
 </div>
