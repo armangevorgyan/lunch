@@ -6,7 +6,7 @@ var clone = require('clone'),
         imageUrl: ''
     },
     examples = {
-        dish: ['Rice', 'Chicken', 'Pork', 'Schnitzel'],
+        dish: ['Rice', 'Chicken', 'Pork', 'Schnitzel', 'Solyanka', 'Borsh', 'Buckwheat'],
         salad: ['Tabule', 'Caesar', 'Greek']
     };
 

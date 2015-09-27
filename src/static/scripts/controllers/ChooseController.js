@@ -1,7 +1,8 @@
 (function(lunch) {
-    function ChooseController($scope, $route, foodAvailabilityWebService, foodChoiceWebService) {
+    function ChooseController($scope, $route, $location, foodAvailabilityWebService, foodChoiceWebService) {
         this.$scope = $scope;
         this.$route = $route;
+        this.$location = $location;
         this.foodAvailabilityWebService = foodAvailabilityWebService;
         this.foodChoiceWebService = foodChoiceWebService;
         this.foodAvailabilityBuilder = new lunch.FoodAvailabilityBuilder();
@@ -26,9 +27,13 @@
     ChooseController.prototype.loadOptions = function () {
         var that = this,
             date = this.$scope.date,
-            type = this.$scope.type;
+            type = this.$scope.type,
+            toDate = new Date(date);
 
-        this.foodAvailabilityWebService.read(date, date)
+        toDate.setDate(toDate.getDate() + 1);
+        toDate.setMilliseconds(-1);
+
+        this.foodAvailabilityWebService.read(date, toDate)
             .then(function (response) {
                 var availabilities = that.foodAvailabilityBuilder.groupByType(response);
                 that.$scope.availabilities = availabilities[type];
@@ -36,9 +41,10 @@
     };
 
     ChooseController.prototype.choose = function(id) {
+        var that = this;
         this.foodChoiceWebService.create(id)
             .then(function(){
-                console.log('ok');
+                that.$location.path('/');
             });
     };
 

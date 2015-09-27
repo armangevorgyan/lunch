@@ -4,7 +4,8 @@
     AbstreactWebService.prototype.constructor = function($q, $http) {
         this.$q = $q;
         this.$http = $http;
-        this.url = 'http://10.18.1.67:8080';
+        this.url = '';
+        //this.url = 'http://10.18.1.67:8080';
         this.options = {
             headers: {
                 Authorization: '29'

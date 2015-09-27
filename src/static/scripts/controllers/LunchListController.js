@@ -13,6 +13,11 @@
 
         fromDate = new Date();
         fromDate.setDate(fromDate.getDate() - fromDate.getDay() + 1);
+        console.log(fromDate.getDate() - fromDate.getDay() + 1);
+        fromDate.setHours(0);
+        fromDate.setMinutes(0);
+        fromDate.setSeconds(0);
+        fromDate.setMilliseconds(0);
         toDate = new Date(fromDate);
         toDate.setDate(toDate.getDate() + 7);
         this.$scope.fromDate = fromDate;
