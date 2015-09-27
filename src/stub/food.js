@@ -1,7 +1,7 @@
 var clone = require('clone'),
     food = {
         id: 0,
-        title: 'Title',
+        foodName: 'Title',
         type: 'dish'
     },
     examples = {
@@ -16,7 +16,7 @@ function random(from, to) {
 function getRandom(type) {
     var currentFood = clone(food);
     currentFood.type = type;
-    currentFood.title = examples[type][random(0, examples[type].length - 1)]
+    currentFood.foodName = examples[type][random(0, examples[type].length - 1)]
     return currentFood;
 }
 

@@ -1,11 +1,11 @@
 <div ng-init="main.init()" class="tab-pane fade in active">
     <calendar start-date="fromDate" on-change="main.loadLunches()"></calendar>
     <div class="lunches row">
-        <div class="col-md-3 col-sm-6 col-xs-12 lunch" ng-repeat="(date, foods) in choices">
+        <div class="col-md-3 col-sm-6 col-xs-12 lunch" ng-repeat="(date, availability) in availabilities">
             {{date | date: 'd MMM (EEEE)'}}
-            <div class="lunch-food" ng-repeat="food in foods">
-                <a href="#/choose/{{food.type}}/{{lunch.date | date: 'yyyy'}}/{{lunch.date | date: 'M'}}/{{lunch.date | date: 'd'}}/">
-                    {{food.title}}
+            <div class="lunch-food" ng-repeat="choice in choices[date]">
+                <a href="#/choose/{{choice.foodAvailability.food.type}}/{{choice.foodAvailability.availableDate | date: 'yyyy'}}/{{choice.foodAvailability.availableDate | date: 'M'}}/{{choice.foodAvailability.availableDate | date: 'd'}}/">
+                    {{choice.foodAvailability.food.foodName}}
                 </a>
             </div>
         </div>

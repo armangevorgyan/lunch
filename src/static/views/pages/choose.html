@@ -1,3 +1,5 @@
 <div ng-init="main.init()">
-
+    <div ng-repeat="availability in availabilities">
+        <div ng-click="main.choose(availability.id)">{{availability.food.foodName}}</div>
+    </div>
 </div>

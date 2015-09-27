@@ -1,8 +1,10 @@
 (function(lunch) {
-    function ChooseController($scope, $route, foodOptionsWebService) {
+    function ChooseController($scope, $route, foodAvailabilityWebService, foodChoiceWebService) {
         this.$scope = $scope;
         this.$route = $route;
-        this.foodOptionsWebService = foodOptionsWebService;
+        this.foodAvailabilityWebService = foodAvailabilityWebService;
+        this.foodChoiceWebService = foodChoiceWebService;
+        this.foodAvailabilityBuilder = new lunch.FoodAvailabilityBuilder();
     };
     ChooseController.prototype.init = function () {
         var params = this.$route.current.params,
@@ -26,9 +28,17 @@
             date = this.$scope.date,
             type = this.$scope.type;
 
-        this.foodOptionsWebService.read(type, date)
+        this.foodAvailabilityWebService.read(date, date)
             .then(function (response) {
-                that.$scope.lunches = response;
+                var availabilities = that.foodAvailabilityBuilder.groupByType(response);
+                that.$scope.availabilities = availabilities[type];
+            });
+    };
+
+    ChooseController.prototype.choose = function(id) {
+        this.foodChoiceWebService.create(id)
+            .then(function(){
+                console.log('ok');
             });
     };
 

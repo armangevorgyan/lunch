@@ -1,9 +1,11 @@
 (function(lunch) {
-    function LunchListController($scope, $http, foodChoiceWebService) {
+    function LunchListController($scope, $http, foodChoiceWebService, foodAvailabilityWebService) {
         this.$scope = $scope;
         this.$http = $http;
         this.foodChoiceWebService = foodChoiceWebService;
+        this.foodAvailabilityWebService = foodAvailabilityWebService;
         this.foodChoiceBuilder = new lunch.FoodChoiceBuilder();
+        this.foodAvailabilityBuilder = new lunch.FoodAvailabilityBuilder();
     };
     LunchListController.prototype.init = function () {
         var fromDate,
@@ -23,12 +25,17 @@
         var that = this,
             fromDate = this.$scope.fromDate,
             toDate = this.$scope.toDate,
-            foodChoiceBuilder = this.foodChoiceBuilder;
+            foodChoiceBuilder = this.foodChoiceBuilder,
+            foodAvailabilityBuilder = this.foodAvailabilityBuilder;
+
+        this.foodAvailabilityWebService.read(fromDate, toDate)
+            .then(function (response) {
+                that.$scope.availabilities = that.foodAvailabilityBuilder.groupByDate(response);
+            });
 
         this.foodChoiceWebService.read(fromDate, toDate)
             .then(function (response) {
-                that.$scope.choices = foodChoiceBuilder.buildGruppedChoises(response);
-                console.log(that.$scope.choices);
+                that.$scope.choices = that.foodChoiceBuilder.buildGruppedChoises(response);
             });
     };
 

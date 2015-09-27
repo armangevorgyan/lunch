@@ -2,9 +2,8 @@ window.app = angular.module('myApp', ['ngRoute'])
     .service('tokenService', lunch.TokenService)
     // web services
     .service('foodChoiceWebService', lunch.FoodChoiceWebService)
-    .service('foodOptionsWebService', lunch.FoodOptionsWebService)
+    .service('foodAvailabilityWebService', lunch.FoodAvailabilityWebService)
     .service('foodWebService', lunch.FoodWebService)
-    .service('supplierOptionsWebService', lunch.f)
     // controllers
     .controller('lunchListController', lunch.LunchListController)
     .controller('signInController', lunch.SignInController)

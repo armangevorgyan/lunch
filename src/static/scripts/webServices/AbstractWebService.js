@@ -14,8 +14,23 @@
             .catch(function(response) {
                 console.error('[AbstractWebService] Request:', url, 'Response:', response.status, response.data);
                 defer.reject({
-                    status: status,
-                    data: data
+                    status: response.status,
+                    data: response.data
+                });
+            });
+        return defer.promise;
+    };
+    AbstreactWebService.prototype.put = function(url, body) {
+        var defer = this.$q.defer();
+        this.$http.put(url, body)
+            .then(function(response) {
+                defer.resolve(response.data);
+            })
+            .catch(function(response) {
+                console.error('[AbstractWebService] Request:', url, 'Response:', response.status, response.data);
+                defer.reject({
+                    status: response.status,
+                    data: response.data
                 });
             });
         return defer.promise;

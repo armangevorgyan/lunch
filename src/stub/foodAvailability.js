@@ -2,8 +2,8 @@ var clone = require('clone'),
 
     food = require(__dirname + '/food.js');
 
-function getChoice(fromDate, toDate) {
-    var choice = [],
+function getAvailability(fromDate, toDate) {
+    var availability = [],
         currentDate,
         i,
         types;
@@ -12,17 +12,16 @@ function getChoice(fromDate, toDate) {
         for(i = 0; i < 5; i++) {
             currentDate = new Date(fromDate);
             currentDate.setDate(currentDate.getDate() + i);
-            choice.push({
-                foodAvailability: {
-                    id: 0,
-                    availableDate: currentDate.toISOString(),
-                    food: food.getRandom(type)
-                }
+            availability.push({
+                id: 0,
+                availableDate: currentDate.toISOString(),
+                food: food.getRandom(type),
+                foodNumber: i
             });
         }
     });
 
-    return choice;
+    return availability;
 }
 
-module.exports.getChoice = getChoice;
+module.exports.getAvailability = getAvailability;
