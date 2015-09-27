@@ -6,15 +6,23 @@
     width: 90%;
     margin: 0 auto;
 }
-.lunch-item{
+.food{
     display: inline-block;
     text-align: center;
     margin-right: 4px;
 }
-.lunch-image{
+.food-image{
     display: block;
     width: 100px;
     height: 100px;
     background-size: cover;
     background-position: center;
+}
+.food-image-inline {
+    display: inline-block;
+}
+.food-description {
+    display: inline-block;
+    height: 100px;
+    vertical-align: top;
 }

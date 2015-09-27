@@ -1,5 +1,13 @@
 <div ng-init="main.init()">
-    <div ng-repeat="availability in availabilities">
-        <div ng-click="main.choose(availability.id)">{{availability.food.foodName}}</div>
+    <div class="row">
+        <div ng-repeat="availability in availabilities" class="col-md-3 col-sm-6 col-xs-12">
+            <div ng-click="main.choose(availability.id)">
+                <div class="food-image food-image-inline" style="background-image: url({{availability.food.imageUrl}})"></div>
+                <div class="food-description">
+                    <b>{{availability.food.foodName}}</b><br/>
+                    Some description
+                </div>
+            </div>
+        </div>
     </div>
 </div>
