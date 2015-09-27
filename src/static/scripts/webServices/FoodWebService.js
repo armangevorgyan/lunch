@@ -9,5 +9,8 @@
     FoodWebService.prototype.read = function(type) {
         return this.get('/food/' + type);
     };
+    FoodWebService.prototype.create = function(type, food) {
+        return this.put('/food/add', food);
+    };
     lunch.FoodWebService = FoodWebService;
 })(lunch);

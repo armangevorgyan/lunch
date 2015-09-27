@@ -15,16 +15,24 @@
             </div>
         </div>
         <div class="row space">
+            <label class="col-md-3">Type</label>
+
+            <div class="col-md-9">
+                <input type="text" ng-model="food.type">
+            </div>
+        </div>
+        <div class="row space">
             <label class="col-md-3">Description</label>
 
             <div class="col-md-9">
                 <textarea type="text" ng-model="food.description"></textarea>
             </div>
         </div>
+
         <div class="row space">
             <div class="col-md-3"></div>
             <div class="col-md-9">
-                <button class="btn btn group btn-primary">Add</button>
+                <button class="btn btn group btn-primary" ng-click="main.add()">Add</button>
             </div>
         </div>
     </form>
