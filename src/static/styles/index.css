@@ -33,3 +33,7 @@
     background: #89af3f;
     border-color: #6a911d;
 }
+.btn-primary:hover, .btn-primary:focus {
+    background: #729829;
+    border-color: #527212;
+}
